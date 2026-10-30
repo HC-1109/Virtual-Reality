@@ -13,15 +13,15 @@ window.addEventListener("DOMContentLoaded",function() {
 
     rocket = document.querySelector("#rocket");
     rocket.y = 0;
-    rocket.dy = 0.001
+    rocket.dy = 0.01
     
     dude = document.querySelector("#dude");
     dude.y = 0;
-    dude.dy = 0.1;
+    dude.dsize = 0.1;
 
     sun = document.querySelector("#sun");
-    sun.op = 0;
-    sun.opv = 0.005;
+    sun.opacity = 0;
+    sun.opacity2 = 0.005;
 
     loop()
 })
@@ -37,12 +37,12 @@ function loop(){
     rocket.y += Math.log(rocket.dy);
     rocket.setAttribute("position",{x:0, y:rocket.dy, z:0});
 
-    dude.y += dude.ys;
+    dude.y += dude.dsize;
     dude.setAttribute("scale",{x:dude.y, y:dude.y, z:dude.y});
     dude.setAttribute("position",{x:1, y:dude.y/2, z:1});
 
-    sun.op += sun.opv;
-    sun.setAttribute("opacity", sun.op);
+    sun.opacity += sun.opacity2;
+    sun.setAttribute("opacity", sun.opacity);
 
     
     window.requestAnimationFrame(loop);
